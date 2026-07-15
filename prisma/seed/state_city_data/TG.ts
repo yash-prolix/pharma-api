@@ -1,0 +1,15 @@
+export const TOGO_REGIONS_CITIES = {
+  'Centrale Region': ['Sokodé', 'Sotouboua', 'Tchamba'],
+  'Kara Region': [
+    'Bafilo',
+    'Bassar',
+    'Kandé',
+    'Kara',
+    'Niamtougou',
+    'Pagouda',
+    'Préfecture de Bassar',
+  ],
+  Maritime: ['Aného', 'Lomé', 'Tabligbo', 'Tsévié', 'Vogan'],
+  'Plateaux Region': ['Amlamé', 'Atakpamé', 'Badou', 'Kpalimé', 'Notsé'],
+  'Savanes Region': ['Dapaong', 'Sansanné-Mango'],
+};

@@ -1,0 +1,17 @@
+export const PALAU_STATES_TOWNS = {
+  Aimeliik: ['Ngchemiangel'],
+  Airai: ['Ngetkib'],
+  Angaur: ['Angaur State'],
+  Hatohobei: ['Tobi Village'],
+  Kayangel: ['Kayangel'],
+  Koror: ['Koror', 'Koror Town'],
+  Melekeok: ['Melekeok Village'],
+  Ngaraard: ['Ulimang'],
+  Ngarchelong: ['Mengellang'],
+  Ngardmau: ['Ngardmau'],
+  Ngchesar: ['Ngchesar Hamlet'],
+  Ngeremlengui: ['Imeong Hamlet'],
+  Ngiwal: ['Ngerkeai'],
+  Peleliu: ['Kloulklubed'],
+  Sonsorol: ['Sonsorol Village'],
+};

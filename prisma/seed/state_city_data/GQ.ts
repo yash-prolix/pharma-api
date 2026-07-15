@@ -1,0 +1,23 @@
+export const EQUATORIAL_GUINEA_PROVINCES_CITIES = {
+  'Annobón Province': ['San Antonio de Palé'],
+  'Bioko Norte Province': ['Malabo', 'Rebola', 'Santiago de Baney'],
+  'Bioko Sur Province': ['Luba'],
+  'Centro Sur Province': ['Acurenam', 'Bicurga', 'Evinayong'],
+  'Kié-Ntem Province': ['Ebebiyin', 'Mikomeseng', 'Ncue', 'Nsang'],
+  'Litoral Province': [
+    'Bata',
+    'Bitica',
+    'Cogo',
+    'Machinda',
+    'Mbini',
+    'Río Campo',
+  ],
+  'Wele-Nzas Province': [
+    'Aconibe',
+    'Añisoc',
+    'Ayene',
+    'Mengomeyén',
+    'Mongomo',
+    'Nsok',
+  ],
+};

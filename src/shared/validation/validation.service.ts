@@ -1,0 +1,69 @@
+import { BadRequestException, Injectable } from '@nestjs/common';
+import { PrismaService } from 'src/prisma/prisma.service';
+
+@Injectable()
+export class ValidationService {
+  constructor(private prisma: PrismaService) {}
+
+  async validateReference(model: string, id: number | string) {
+    if (!id) return;
+
+    const record = await this.prisma[model]?.findUnique({
+      where: { id },
+    });
+
+    if (!record) {
+      throw new BadRequestException(
+        `${this.capitalize(model)} ${'ID is invalid or record not found'}`,
+      );
+    }
+
+    return record;
+  }
+
+  async validateReferences(references: Record<string, number | string>) {
+    const results: Record<string, any> = {};
+
+    for (const [key, value] of Object.entries(references)) {
+      const model = key.replace(/Id$/, '');
+      results[model] = await this.validateReference(model, value);
+    }
+
+    return results;
+  }
+
+  private capitalize(value: string): string {
+    return value.charAt(0).toUpperCase() + value.slice(1);
+  }
+
+  async validateReferenceByName(model: string, name: string) {
+    if (!name) return;
+    const record = await this.prisma[model]?.findFirst({
+      where: {
+        name: {
+          equals: name,
+          mode: 'insensitive',
+        },
+      },
+    });
+
+    if (!record) {
+      throw new BadRequestException(
+        `${this.capitalize(model)} ${'Name is invalid or record not found'}`,
+      );
+    }
+
+    return record;
+  }
+
+  async validateReferencesByName(references: Record<string, string>) {
+    const results: Record<string, any> = {};
+
+    for (const [key, value] of Object.entries(references)) {
+      const model = key.replace(/Id$/, '');
+      results[key] = await this.validateReferenceByName(model, value);
+    }
+
+    return results;
+  }
+}

@@ -1,0 +1,17 @@
+export const GABON_PROVINCES_CITIES = {
+  'Estuaire Province': ['Cocobeach', 'Libreville', 'Ntoum'],
+  'Haut-Ogooué Province': [
+    'Franceville',
+    'Lékoni',
+    'Moanda',
+    'Mounana',
+    'Okondja',
+  ],
+  'Moyen-Ogooué Province': ['Lambaréné', 'Ndjolé'],
+  'Ngounié Province': ['Fougamou', 'Mbigou', 'Mimongo', 'Mouila', 'Ndendé'],
+  'Nyanga Province': ['Mayumba', 'Tchibanga'],
+  'Ogooué-Ivindo Province': ['Booué', 'Makokou', 'Zadie'],
+  'Ogooué-Lolo Province': ['Koulamoutou', 'Lastoursville'],
+  'Ogooué-Maritime Province': ['Gamba', 'Omboué', 'Port-Gentil'],
+  'Woleu-Ntem Province': ['Bitam', 'Mitzic', 'Oyem'],
+};

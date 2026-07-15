@@ -1,0 +1,31 @@
+export const OMAN_GOVERNORATES_CITIES = {
+  'Ad Dakhiliyah': [
+    'Adam',
+    'Bahlā’',
+    'Bidbid',
+    'Izkī',
+    'Nizwá',
+    'Sufālat Samā’il',
+  ],
+  'Ad Dhahirah': ['‘Ibrī', 'Yanqul'],
+  'Al Batinah North': [
+    'Al Khābūrah',
+    'As Suwayq',
+    'Liwá',
+    'Şaḩam',
+    'Shināş',
+    'Sohar',
+  ],
+  'Al Batinah Region': [
+    'Barkā’',
+    'Bayt al ‘Awābī',
+    'Oman Smart Future City',
+    'Rustaq',
+  ],
+  'Al Buraimi': ['Al Buraymī'],
+  'Al Wusta': ['Haymā’'],
+  'Ash Sharqiyah Region': ['Sur'],
+  Dhofar: ['Şalālah'],
+  Musandam: ['Dib Dibba', 'Khasab', 'Madḩā’ al Jadīdah'],
+  Muscat: ['Bawshar', 'Muscat', 'Seeb'],
+};

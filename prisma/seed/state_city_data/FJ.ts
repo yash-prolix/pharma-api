@@ -1,0 +1,30 @@
+export const FIJI_DIVISIONS_CITIES = {
+  'Central Division': [
+    'Naitasiri Province',
+    'Namosi Province',
+    'Rewa Province',
+    'Serua Province',
+    'Suva',
+    'Tailevu Province',
+  ],
+  'Eastern Division': [
+    'Kadavu Province',
+    'Lau Province',
+    'Levuka',
+    'Lomaiviti Province',
+  ],
+  'Northern Division': [
+    'Bua Province',
+    'Cakaudrove Province',
+    'Labasa',
+    'Macuata Province',
+  ],
+  'Western Division': [
+    'Ba',
+    'Ba Province',
+    'Lautoka',
+    'Nadi',
+    'Nandronga and Navosa Province',
+    'Ra Province',
+  ],
+};

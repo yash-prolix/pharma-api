@@ -1,0 +1,48 @@
+export const GUYANA_REGIONS_CITIES = {
+  'Barima-Waini': ['Mabaruma'],
+  'Cuyuni-Mazaruni': ['Bartica'],
+  'Demerara-Mahaica': ['Georgetown', 'Mahaica Village'],
+  'East Berbice-Corentyne': ['New Amsterdam', 'Skeldon'],
+  'Essequibo Islands-West Demerara': ['Parika', 'Vreed-en-Hoop'],
+  'Mahaica-Berbice': ['Mahaicony Village', 'Rosignol'],
+  'Pomeroon-Supenaam': ['Anna Regina'],
+  'Potaro-Siparuni': ['Mahdia'],
+  'Upper Demerara-Berbice': ['Linden'],
+  'Upper Takutu-Upper Essequibo': ['Lethem'],
+};
+// {
+//   "Barima-Waini": [
+//     "Mabaruma"
+//   ],
+//   "Cuyuni-Mazaruni": [
+//     "Bartica"
+//   ],
+//   "Demerara-Mahaica": [
+//     "Georgetown",
+//     "Mahaica Village"
+//   ],
+//   "East Berbice-Corentyne": [
+//     "New Amsterdam",
+//     "Skeldon"
+//   ],
+//   "Essequibo Islands-West Demerara": [
+//     "Parika",
+//     "Vreed-en-Hoop"
+//   ],
+//   "Mahaica-Berbice": [
+//     "Mahaicony Village",
+//     "Rosignol"
+//   ],
+//   "Pomeroon-Supenaam": [
+//     "Anna Regina"
+//   ],
+//   "Potaro-Siparuni": [
+//     "Mahdia"
+//   ],
+//   "Upper Demerara-Berbice": [
+//     "Linden"
+//   ],
+//   "Upper Takutu-Upper Essequibo": [
+//     "Lethem"
+//   ]
+// }

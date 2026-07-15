@@ -1,0 +1,23 @@
+export const US_VIRGIN_ISLAND_STATE_CITY = {
+  'Saint Croix': [
+    'Christiansted',
+    'East End',
+    'Frederiksted',
+    'Good Hope',
+    'Northcentral',
+    'Northwest',
+    'Sion Farm',
+    'Southcentral',
+    'Southwest',
+  ],
+  'Saint John': ['Central', 'Coral Bay', 'Cruz Bay', 'East End'],
+  'Saint Thomas': [
+    'Charlotte Amalie',
+    'East End',
+    'Northside',
+    'Southside',
+    'Tutu',
+    'Water Island',
+    'West End',
+  ],
+};

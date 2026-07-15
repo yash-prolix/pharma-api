@@ -1,0 +1,27 @@
+export const CONGO_KINSHASA_REGIONS_CITIES = {
+  'Bouenza Department': ['Kayes', 'Madingou'],
+  Brazzaville: ['Brazzaville'],
+  'Cuvette Department': ['Makoua', 'Owando'],
+  'Cuvette-Ouest Department': ['Ewo'],
+  'Lékoumou Department': ['Sibiti'],
+  'Likouala Department': ['Impfondo'],
+  'Niari Department': ['Dolisie', 'Mossendjo'],
+  'Plateaux Department': ['Djambala', 'Gamboma'],
+  'Pointe-Noire': ['Loandjili', 'Pointe-Noire'],
+  'Pool Department': ['Kinkala'],
+  'Sangha Department': ['Ouésso', 'Sémbé'],
+};
+// {
+//   Kinshasa: ['Kinshasa', 'Gombe', 'Limete', 'Kisangani'],
+//   'Haut-Katanga': ['Lubumbashi', 'Likasi', 'Kolwezi', 'Kipushi'],
+//   'Haut-Lomami': ['Kamina', 'Sama', 'Kundelungu', 'Malemba-Nkulu'],
+//   Ituri: ['Bunia', 'Irumu', 'Mambasa', 'Tchomia'],
+//   Kasaï: ['Kananga', 'Mbuji-Mayi', 'Tshikapa', 'Demba'],
+//   'Kasaï-Central': ['Mbuji-Mayi', 'Kananga', 'Tshikapa', 'Demba'],
+//   'Kasaï-Oriental': ['Mbuji-Mayi', 'Tshikapa', 'Kananga', 'Demba'],
+//   Maniema: ['Sefu', 'Kamina', 'Uvira', 'Kisangani'],
+//   'North Kivu': ['Goma', 'Beni', 'Butembo', 'Lubero'],
+//   'South Kivu': ['Bukavu', 'Uvira', 'Kalehe', 'Kamanyola'],
+//   Tshopo: ['Kisangani', 'Wamba', 'Isangi', 'Tshopo'],
+//   Tshuapa: ['Boende', 'Kisangani', 'Bumba', 'Buta'],
+// };

@@ -1,0 +1,20 @@
+export const SINGAPORE_STATE_CITY = {
+  'Central Singapore': [
+    'Bukit Timah',
+    'Downtown Core',
+    'Geylang',
+    'Kallang',
+    'Marine Parade',
+    'Novena',
+    'Orchard Road',
+    'Outram',
+    'Rochor',
+    'Singapore',
+    'Tanjong Pagar',
+    'Toa Payoh',
+  ],
+  'North East': ['Ang Mo Kio', 'Hougang', 'Punggol', 'Sengkang', 'Serangoon'],
+  'North West': ['Sembawang', 'Woodlands', 'Yishun'],
+  'South East': ['Bedok', 'Pasir Ris', 'Tampines'],
+  'South West': ['Bukit Batok', 'Bukit Panjang', 'Jurong West'],
+};

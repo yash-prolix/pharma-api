@@ -1,0 +1,8 @@
+export const ERITREA_REGIONS_CITIES = {
+  'Anseba Region': ['Keren'],
+  'Debub Region': ['Adi Keyh', 'Dek’emhāre', 'Mendefera'],
+  'Gash-Barka Region': ['Ak’ordat', 'Barentu', 'Teseney'],
+  'Maekel Region': ['Asmara'],
+  'Northern Red Sea Region': ['Massawa'],
+  'Southern Red Sea Region': ['Assab', 'Edd'],
+};

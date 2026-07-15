@@ -1,0 +1,254 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  // url      = env("DATABASE_URL")
+}
+
+model Country {
+  id             String    @id @default(uuid()) @db.Uuid
+  name           String    @db.VarChar(100)
+  code           String    @unique @db.VarChar(6)
+  currency       String    @db.VarChar(30)
+  currencySymbol String    @map("currency_symbol")
+  phoneCode      String    @map("phone_code")
+  isActive       Boolean   @default(true) @map("is_active")
+  timeZone       String    @map("time_zone") @db.VarChar(20)
+  createdBy      String?   @map("created_by") @db.VarChar(255)
+  createdAt      DateTime  @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedBy      String?   @map("updated_by") @db.VarChar(255)
+  updatedAt      DateTime? @updatedAt @map("updated_at") @db.Timestamptz(6)
+  states         State[]
+
+  @@map("country")
+}
+
+model State {
+  id          Int       @id @default(autoincrement())
+  name        String    @map("name") @db.VarChar(512)
+  countryCode String    @map("country_code") @db.VarChar(6)
+  createdBy   String?   @map("created_by") @db.VarChar(255)
+  createdAt   DateTime  @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedBy   String?   @map("updated_by") @db.VarChar(255)
+  updatedAt   DateTime? @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  City City[]
+
+  country Country @relation(fields: [countryCode], references: [code], onUpdate: Restrict, onDelete: Restrict)
+
+  locations Location[]
+
+  @@map("state")
+}
+
+model City {
+  id        Int       @id @default(autoincrement())
+  name      String    @map("name") @db.VarChar(512)
+  stateId   Int       @map("stateId")
+  createdBy String?   @map("created_by") @db.VarChar(255)
+  createdAt DateTime  @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedBy String?   @map("updated_by") @db.VarChar(255)
+  updatedAt DateTime? @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  state State @relation(fields: [stateId], references: [id], onUpdate: Restrict, onDelete: Restrict)
+
+  locations Location[]
+
+  @@map("city")
+}
+
+model UserRole {
+  id        Int       @id @default(autoincrement())
+  name      String    @db.VarChar(512)
+  createdBy String?   @map("created_by") @db.VarChar(255)
+  createdAt DateTime  @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedBy String?   @map("updated_by") @db.VarChar(255)
+  updatedAt DateTime? @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  users User[]
+
+  @@map("user_roles")
+}
+
+model UserStatus {
+  id        Int       @id @default(autoincrement())
+  name      String    @db.VarChar(512)
+  createdBy String?   @map("created_by") @db.VarChar(255)
+  createdAt DateTime  @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedBy String?   @map("updated_by") @db.VarChar(255)
+  updatedAt DateTime? @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  users User[]
+
+  @@map("user_statuses")
+}
+
+model ProductStatus {
+  id        Int       @id @default(autoincrement())
+  name      String    @db.VarChar(512)
+  createdBy String?   @map("created_by") @db.VarChar(255)
+  createdAt DateTime  @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedBy String?   @map("updated_by") @db.VarChar(255)
+  updatedAt DateTime? @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  products Product[]
+
+  @@map("product_statuses")
+}
+
+model User {
+  id        String   @id @default(uuid()) @db.Uuid
+  firstName String   @map("first_name")
+  lastName  String   @map("last_name")
+  email     String   @unique @map("email")
+  password  String   @map("password")
+  phoneCode String?  @map("phone_code")
+  phone     String
+  roleId    Int      @map("role_id")
+  statusId  Int      @map("status_id")
+  createdBy String?  @map("created_by")
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedBy String?  @map("updated_by")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  userRole     UserRole      @relation(fields: [roleId], references: [id], onUpdate: Restrict, onDelete: Restrict)
+  userStatus   UserStatus?   @relation(fields: [statusId], references: [id], onUpdate: Restrict, onDelete: Restrict)
+  transactions Transaction[]
+
+  @@map("users")
+}
+
+model PasswordReset {
+  id         String   @id @default(uuid())
+  email      String
+  otp        String
+  isVerified Boolean  @default(false) @map("is_verified")
+  expiresAt  DateTime @map("expires_at")
+  createdBy  String?  @map("created_by")
+  createdAt  DateTime @default(now()) @map("created_at")
+  updatedBy  String?  @map("updated_by")
+  updatedAt  DateTime @updatedAt @map("updated_at")
+
+  @@map("password_reset")
+}
+
+model Location {
+  id        String   @id @default(uuid()) @db.Uuid
+  name      String   @map("name")
+  cityId    Int      @map("city_id")
+  stateId   Int      @map("state_id")
+  createdBy String?  @map("created_by")
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedBy String?  @map("updated_by")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  city          City           @relation(fields: [cityId], references: [id], onUpdate: Restrict, onDelete: Restrict)
+  state         State          @relation(fields: [stateId], references: [id], onUpdate: Restrict, onDelete: Restrict)
+  doctors       Doctor[]
+  medicalStores MedicalStore[]
+
+  @@map("locations")
+}
+
+model Doctor {
+  id             String   @id @default(uuid()) @db.Uuid
+  firstName      String   @map("first_name")
+  lastName       String   @map("last_name")
+  specialization String   @map("specialization")
+  qualification  String   @map("qualification")
+  experience     Int      @map("experience")
+  address        String   @map("address")
+  locationId     String   @map("location_id") @db.Uuid
+  isActive       Boolean  @default(true) @map("is_active")
+  createdBy      String?  @map("created_by")
+  createdAt      DateTime @default(now()) @map("created_at")
+  updatedBy      String?  @map("updated_by")
+  updatedAt      DateTime @updatedAt @map("updated_at")
+
+  location     Location      @relation(fields: [locationId], references: [id], onUpdate: Restrict, onDelete: Restrict)
+  transactions Transaction[]
+
+  @@map("doctors")
+}
+
+model MedicalStore {
+  id            String   @id @default(uuid()) @db.Uuid
+  name          String   @map("name")
+  contactPerson String   @map("contact_person")
+  phone         String   @map("phone")
+  address       String   @map("address")
+  locationId    String   @map("location_id") @db.Uuid
+  phoneCode     String?  @map("phone_code")
+  isActive      Boolean  @default(true) @map("is_active")
+  createdBy     String?  @map("created_by")
+  createdAt     DateTime @default(now()) @map("created_at")
+  updatedBy     String?  @map("updated_by")
+  updatedAt     DateTime @updatedAt @map("updated_at")
+
+  location     Location      @relation(fields: [locationId], references: [id], onUpdate: Restrict, onDelete: Restrict)
+  transactions Transaction[]
+
+  @@map("medical_stores")
+}
+
+model Division {
+  id        String    @id @default(uuid()) @db.Uuid
+  name      String    @map("name") @db.VarChar(512)
+  createdBy String?   @map("created_by") @db.VarChar(255)
+  createdAt DateTime  @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedBy String?   @map("updated_by") @db.VarChar(255)
+  updatedAt DateTime? @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  products Product[]
+
+  @@map("divisions")
+}
+
+model Product {
+  id          String   @id @default(uuid()) @db.Uuid
+  productCode String   @unique @map("product_code")
+  name        String   @map("name")
+  divisionId  String   @map("division_id") @db.Uuid
+  ingredients Json     @map("ingredients")
+  strength    Decimal  @map("strength")
+  packedSize  String   @map("packed_size")
+  mrp         Int      @map("mrp")
+  ptr         Int      @map("ptr")
+  pts         Int      @map("pts")
+  statusId    Int      @map("status_id")
+  createdBy   String?  @map("created_by")
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedBy   String?  @map("updated_by")
+  updatedAt   DateTime @updatedAt @map("updated_at")
+
+  division     Division      @relation(fields: [divisionId], references: [id], onUpdate: Restrict, onDelete: Restrict)
+  status       ProductStatus @relation(fields: [statusId], references: [id], onUpdate: Restrict, onDelete: Restrict)
+  transactions Transaction[]
+
+  @@map("products")
+}
+
+model Transaction {
+  id                      String   @id @default(uuid()) @db.Uuid
+  medicalRepresentativeId String   @map("mr_id") @db.Uuid
+  productId               String   @map("product_id") @db.Uuid
+  doctorId                String?  @map("doctor_id") @db.Uuid
+  medicalStoreId          String   @map("medical_store_id") @db.Uuid
+  quantity                Int      @map("quantity")
+  freeQuantity            Int      @default(0) @map("free_quantity")
+  mrp                     Int      @map("mrp")
+  totalAmount             Int      @map("total_amount")
+  createdBy               String?  @map("created_by")
+  createdAt               DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedBy               String?  @map("updated_by")
+  updatedAt               DateTime @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  medicalRepresentative User         @relation(fields: [medicalRepresentativeId], references: [id], onUpdate: Restrict, onDelete: Restrict)
+  product               Product      @relation(fields: [productId], references: [id], onUpdate: Restrict, onDelete: Restrict)
+  doctor                Doctor?      @relation(fields: [doctorId], references: [id], onUpdate: Restrict, onDelete: Restrict)
+  medicalStore          MedicalStore @relation(fields: [medicalStoreId], references: [id], onUpdate: Restrict, onDelete: Restrict)
+
+  @@map("transactions")
+}

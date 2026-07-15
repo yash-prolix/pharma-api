@@ -1,0 +1,8 @@
+export const DJIBOUTI_REGIONS_CITIES = {
+  'Ali Sabieh Region': ["'Ali Sabieh", 'Goubétto', 'Holhol'],
+  'Arta Region': ['Arta'],
+  'Dikhil Region': ['Dikhil', 'Gâlâfi'],
+  Djibouti: ['Djibouti', 'Loyada'],
+  'Obock Region': ['Alaïli Ḏaḏḏa‘', 'Obock'],
+  'Tadjourah Region': ['Dorra', 'Tadjourah'],
+};

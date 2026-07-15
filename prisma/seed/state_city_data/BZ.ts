@@ -1,0 +1,13 @@
+export const BELIZE_REGIONS_CITIES = {
+  'Belize District': ['Belize City', 'San Pedro'],
+  'Cayo District': [
+    'Belmopan',
+    'Benque Viejo el Carmen',
+    'San Ignacio',
+    'Valley of Peace',
+  ],
+  'Corozal District': ['Corozal'],
+  'Orange Walk District': ['Hopelchén', 'Orange Walk', 'Shipyard'],
+  'Stann Creek District': ['Dangriga', 'Placencia'],
+  'Toledo District': ['Punta Gorda'],
+};

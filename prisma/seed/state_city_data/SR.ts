@@ -1,0 +1,11 @@
+export const SURINAME_DISTRICTS_CITIES = {
+  'Brokopondo District': ['Brokopondo', 'Brownsweg'],
+  'Commewijne District': ['Mariënburg', 'Nieuw Amsterdam'],
+  'Coronie District': ['Totness'],
+  'Marowijne District': ['Albina', 'Moengo'],
+  'Nickerie District': ['Nieuw Nickerie', 'Wageningen'],
+  'Para District': ['Onverwacht'],
+  'Paramaribo District': ['Paramaribo'],
+  'Saramacca District': ['Groningen'],
+  'Wanica District': ['Lelydorp'],
+};

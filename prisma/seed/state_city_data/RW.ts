@@ -1,0 +1,12 @@
+export const RWANDA_PROVINCES_CITIES = {
+  'Eastern Province': ['Kibungo', 'Rwamagana'],
+  'Kigali district': ['Kigali'],
+  'Northern Province': ['Byumba', 'Musanze'],
+  'Southern Province': [
+    'Butare',
+    'Eglise Catholique Centrale GIKO',
+    'Gitarama',
+    'Nzega',
+  ],
+  'Western Province': ['Cyangugu', 'Gisenyi', 'Kibuye'],
+};
